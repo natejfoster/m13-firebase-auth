@@ -49,11 +49,9 @@ $(function() {
     // Sign out: Function to log a user out of firebase
     var signOut = function() {
         // Sign out, then redirect
-        $('#log-out').on('click', function() {
-
-        })
-
-
+        firebase.auth().signOut().then(function() {
+          window.location = 'sign-up.html';
+        });
     };
 
     // Assign event lister to form submission
@@ -69,7 +67,9 @@ $(function() {
 
 
     // Assign click event to logout button
-
+    $('#log-out').on('click', function() {
+        signOut();
+    })
 
 
     // Authentication Change: see if a user is already signed in, and redirect
